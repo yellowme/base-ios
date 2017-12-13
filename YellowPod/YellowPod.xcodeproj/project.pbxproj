@@ -10,6 +10,10 @@
 		34B7F27EDEB674171EF28B52 /* Pods_YellowPodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E915F0320289F8B0C4CC2D7B /* Pods_YellowPodTests.framework */; };
 		34FEBDC1BD12667A5B4E9F37 /* Pods_YellowPod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B941BF62AF30E905C104E0 /* Pods_YellowPod.framework */; };
 		5EF5FFD5591E207DF4C377B1 /* Pods_YellowPodUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5CD8CCFA2D0EB520B49EC4 /* Pods_YellowPodUITests.framework */; };
+		A072462E1FE1E6D100236E68 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07246291FE1E6D000236E68 /* TokenManager.swift */; };
+		A072462F1FE1E6D100236E68 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A072462A1FE1E6D000236E68 /* UserManager.swift */; };
+		A07246301FE1E6D100236E68 /* LocalKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A072462C1FE1E6D000236E68 /* LocalKeys.swift */; };
+		A07246311FE1E6D100236E68 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A072462D1FE1E6D000236E68 /* Manager.swift */; };
 		A0CD65611FD72BCC008A9845 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD65601FD72BCC008A9845 /* AppDelegate.swift */; };
 		A0CD65631FD72BCC008A9845 /* DispatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CD65621FD72BCC008A9845 /* DispatchViewController.swift */; };
 		A0CD65681FD72BCC008A9845 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0CD65671FD72BCC008A9845 /* Assets.xcassets */; };
@@ -78,6 +82,10 @@
 		65F5C7E8FB380B75635F101E /* Pods-YellowPodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YellowPodTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YellowPodTests/Pods-YellowPodTests.release.xcconfig"; sourceTree = "<group>"; };
 		6A5CD8CCFA2D0EB520B49EC4 /* Pods_YellowPodUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YellowPodUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		847409FAB587F35C2A154594 /* Pods-YellowPodUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YellowPodUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YellowPodUITests/Pods-YellowPodUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A07246291FE1E6D000236E68 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		A072462A1FE1E6D000236E68 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		A072462C1FE1E6D000236E68 /* LocalKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalKeys.swift; sourceTree = "<group>"; };
+		A072462D1FE1E6D000236E68 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		A0CD655D1FD72BCC008A9845 /* YellowPod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YellowPod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0CD65601FD72BCC008A9845 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0CD65621FD72BCC008A9845 /* DispatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +177,33 @@
 				A0CD65931FD73228008A9845 /* Data */,
 				A0CD65961FD73228008A9845 /* Domain */,
 				A0CD65921FD73228008A9845 /* Presentation */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		A07246271FE1E6D000236E68 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				A07246281FE1E6D000236E68 /* Managers */,
+				A072462B1FE1E6D000236E68 /* Support */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		A07246281FE1E6D000236E68 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A07246291FE1E6D000236E68 /* TokenManager.swift */,
+				A072462A1FE1E6D000236E68 /* UserManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A072462B1FE1E6D000236E68 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A072462C1FE1E6D000236E68 /* LocalKeys.swift */,
+				A072462D1FE1E6D000236E68 /* Manager.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -279,17 +314,10 @@
 		A0CD65931FD73228008A9845 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A0CD65941FD73228008A9845 /* Local */,
+				A07246271FE1E6D000236E68 /* Local */,
 				A0CD65951FD73228008A9845 /* Remote */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		A0CD65941FD73228008A9845 /* Local */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Local;
 			sourceTree = "<group>";
 		};
 		A0CD65951FD73228008A9845 /* Remote */ = {
@@ -714,6 +742,7 @@
 				A0EAC74E1FD74DF2000268A3 /* RefreshableViewModel.swift in Sources */,
 				A0EAC73A1FD7477A000268A3 /* RemoteDataSource.swift in Sources */,
 				A0EAC70C1FD73F49000268A3 /* UIView+Styles.swift in Sources */,
+				A07246301FE1E6D100236E68 /* LocalKeys.swift in Sources */,
 				A0EAC7331FD7477A000268A3 /* UsersRouter.swift in Sources */,
 				A0EAC74D1FD74DF2000268A3 /* ItemHolder.swift in Sources */,
 				A0CD65B01FD73A8F008A9845 /* Double+Ext.swift in Sources */,
@@ -722,6 +751,7 @@
 				A0EAC72B1FD7477A000268A3 /* Parsers.swift in Sources */,
 				A0CD65AD1FD73A8F008A9845 /* Date+Ext.swift in Sources */,
 				A0EAC72C1FD7477A000268A3 /* Requests.swift in Sources */,
+				A07246311FE1E6D100236E68 /* Manager.swift in Sources */,
 				A0EAC7391FD7477A000268A3 /* Parser.swift in Sources */,
 				A0CD65AF1FD73A8F008A9845 /* UIImage+Ext.swift in Sources */,
 				A0EAC72D1FD7477A000268A3 /* API.swift in Sources */,
@@ -732,9 +762,11 @@
 				A0CD65AE1FD73A8F008A9845 /* UICollectionView+Ext.swift in Sources */,
 				A0EAC73B1FD7477A000268A3 /* TokenHelper.swift in Sources */,
 				A0EAC7351FD7477A000268A3 /* API+String.swift in Sources */,
+				A072462E1FE1E6D100236E68 /* TokenManager.swift in Sources */,
 				A0CD65611FD72BCC008A9845 /* AppDelegate.swift in Sources */,
 				A0EAC70F1FD74007000268A3 /* DecorableCell.swift in Sources */,
 				A0EAC7381FD7477A000268A3 /* Networking.swift in Sources */,
+				A072462F1FE1E6D100236E68 /* UserManager.swift in Sources */,
 				A0EAC7441FD74C29000268A3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
