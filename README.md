@@ -27,7 +27,7 @@ git clone git@github.com:yellowme/base-ios.git
 
 2. Make sure to add a proper `.gitignore` file to the project. You can use [this one](./YellowPod/.gitignore)
 
-3. To follow a better structure, you could relocate the `Info.plist` file going to project `Build Settings` under `Packaging` section find the `Info.plist File` config
+3. (Optional) To follow a better structure, you could relocate the `Info.plist` file going to project `Build Settings` under `Packaging` section find the `Info.plist File` config
 
 4. Prepare the project to support `CocoaPods`
 
