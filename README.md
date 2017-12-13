@@ -29,7 +29,32 @@ git clone git@github.com:yellowme/base-ios.git
 
 3. To follow a better structure, you could relocate the `Info.plist` file going to project `Build Settings` under `Packaging` section find the `Info.plist File` config
 
-4. The last step is to copy the `Support` folder from this library onto your project.
+4. Prepare the project to support `CocoaPods`
+
+Initialize the pod support. This would create a `Podfile` on the project root.
+
+``` bash
+pod init
+```
+
+Add the following dependencies to the `Podfile`:
+
+* Alamofire (^4.5)
+* SDWebImage (^3.8)
+* SwiftyJSON
+* DefaultsKit
+
+You could use [this file](./YellowPod/Podfile) as reference.
+
+After adding the dependencies execute:
+
+``` bash
+pod install
+```
+
+5. After installing dependencies, close the Xcode and **reopen the project** but always using the recently generated workspace file `YourProjectName/YourProjectName.xcworkspace`.
+
+6. The last step is to copy the `Support` folder from this library onto your project.
 
 ## Development Team
 
