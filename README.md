@@ -9,6 +9,8 @@ This is a base project skeleton used on our iOS projects. You can refer here to 
 
 ## How To Use?
 
+### Get the YellowPod
+
 1. First clone this repo.
 
 ``` bash
@@ -17,13 +19,17 @@ git clone git@github.com:yellowme/base-ios.git
 
 2. Open the Xcode project using `YellowPod/YellowPod.xcworkspace` only.
 
-3. Learn about our `project structure`.
+3. Learn about our `project structure` [here](./YellowPod/README.md).
 
-//TODO: Complete how to use guide.
+### Create your own project
 
-//TODO: Add how to copy Files to new xcode project from this repo
+1. Open the Xcode and create a `Single View App` project
 
-//TODO: Add Step to relocate Info.plist file going to project `Build Settings` under `Packaging` section find the `Info.plist File` config
+2. Make sure to add a proper `.gitignore` file to the project. You can use [this one](./YellowPod/.gitignore)
+
+3. To follow a better structure, you could relocate the `Info.plist` file going to project `Build Settings` under `Packaging` section find the `Info.plist File` config
+
+4. The last step is to copy the `Support` folder from this library onto your project.
 
 ## Development Team
 

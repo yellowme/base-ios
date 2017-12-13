@@ -161,6 +161,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A072461C1FE1E29E00236E68 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A0CD658E1FD73228008A9845 /* Common */,
+				A0CD65911FD73228008A9845 /* Components */,
+				A0CD65931FD73228008A9845 /* Data */,
+				A0CD65961FD73228008A9845 /* Domain */,
+				A0CD65921FD73228008A9845 /* Presentation */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		A0CD65541FD72BCC008A9845 = {
 			isa = PBXGroup;
 			children = (
@@ -186,12 +198,8 @@
 		A0CD655F1FD72BCC008A9845 /* YellowPod */ = {
 			isa = PBXGroup;
 			children = (
-				A0CD65971FD7324A008A9845 /* Support */,
-				A0CD658E1FD73228008A9845 /* Common */,
-				A0CD65911FD73228008A9845 /* Components */,
-				A0CD65931FD73228008A9845 /* Data */,
-				A0CD65961FD73228008A9845 /* Domain */,
-				A0CD65921FD73228008A9845 /* Presentation */,
+				A072461C1FE1E29E00236E68 /* Support */,
+				A0CD65971FD7324A008A9845 /* Config */,
 			);
 			path = YellowPod;
 			sourceTree = "<group>";
@@ -306,7 +314,7 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		A0CD65971FD7324A008A9845 /* Support */ = {
+		A0CD65971FD7324A008A9845 /* Config */ = {
 			isa = PBXGroup;
 			children = (
 				A0CD65601FD72BCC008A9845 /* AppDelegate.swift */,
@@ -314,7 +322,7 @@
 				A0CD65691FD72BCC008A9845 /* LaunchScreen.storyboard */,
 				A0CD656C1FD72BCC008A9845 /* Info.plist */,
 			);
-			path = Support;
+			path = Config;
 			sourceTree = "<group>";
 		};
 		A0CD65981FD73932008A9845 /* Dispatch */ = {
@@ -887,7 +895,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = YellowPod/Support/Info.plist;
+				INFOPLIST_FILE = YellowPod/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mx.yellowme.YellowPod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -902,7 +910,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = YellowPod/Support/Info.plist;
+				INFOPLIST_FILE = YellowPod/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mx.yellowme.YellowPod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
