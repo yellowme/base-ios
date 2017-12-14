@@ -68,7 +68,10 @@ pod install
 
 #### 6. The last step is to copy the sources from this library onto your project
 
-To do this you need to *right click* above your main project folder and select `Add Files to "ProjectName"..` and select the folder `Support` from the `YellowPod` library wherever you downloaded it.
+You could achieve this in two ways:
+
+1. *Right click* above your main project folder and select `Add Files to "ProjectName"..` and select the folder `Support` from the `YellowPod` library wherever you downloaded it.
+2. Drag and drop the `Support` folder onto the Xcode and select the `Create groups` option on the prompted dialog.
 
 ## Development Team
 
