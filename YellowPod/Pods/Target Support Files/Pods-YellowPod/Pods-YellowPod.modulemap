@@ -1,0 +1,6 @@
+framework module Pods_YellowPod {
+  umbrella header "Pods-YellowPod-umbrella.h"
+
+  export *
+  module * { export * }
+}
