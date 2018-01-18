@@ -37,7 +37,6 @@
 		A0EAC70F1FD74007000268A3 /* DecorableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EAC70D1FD74007000268A3 /* DecorableCell.swift */; };
 		A0EAC7101FD74007000268A3 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EAC70E1FD74007000268A3 /* NavigationHelper.swift */; };
 		A0EAC72B1FD7477A000268A3 /* Parsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EAC7121FD74779000268A3 /* Parsers.swift */; };
-		A0EAC72C1FD7477A000268A3 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EAC7131FD74779000268A3 /* Requests.swift */; };
 		A0EAC72D1FD7477A000268A3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EAC7141FD74779000268A3 /* API.swift */; };
 		A0EAC7321FD7477A000268A3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EAC71A1FD7477A000268A3 /* Router.swift */; };
 		A0EAC7331FD7477A000268A3 /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EAC71B1FD7477A000268A3 /* UsersRouter.swift */; };
@@ -115,7 +114,6 @@
 		A0EAC70D1FD74007000268A3 /* DecorableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorableCell.swift; sourceTree = "<group>"; };
 		A0EAC70E1FD74007000268A3 /* NavigationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		A0EAC7121FD74779000268A3 /* Parsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsers.swift; sourceTree = "<group>"; };
-		A0EAC7131FD74779000268A3 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		A0EAC7141FD74779000268A3 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A0EAC71A1FD7477A000268A3 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A0EAC71B1FD7477A000268A3 /* UsersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
@@ -169,18 +167,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A072461C1FE1E29E00236E68 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				A0CD658E1FD73228008A9845 /* Common */,
-				A0CD65911FD73228008A9845 /* Components */,
-				A0CD65931FD73228008A9845 /* Data */,
-				A0CD65961FD73228008A9845 /* Domain */,
-				A0CD65921FD73228008A9845 /* Presentation */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
 		A07246271FE1E6D000236E68 /* Local */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,8 +219,12 @@
 		A0CD655F1FD72BCC008A9845 /* YellowPod */ = {
 			isa = PBXGroup;
 			children = (
-				A072461C1FE1E29E00236E68 /* Support */,
 				A0CD65971FD7324A008A9845 /* Config */,
+				A0CD658E1FD73228008A9845 /* Common */,
+				A0CD65911FD73228008A9845 /* Components */,
+				A0CD65961FD73228008A9845 /* Domain */,
+				A0CD65931FD73228008A9845 /* Data */,
+				A0CD65921FD73228008A9845 /* Presentation */,
 			);
 			path = YellowPod;
 			sourceTree = "<group>";
@@ -326,7 +316,7 @@
 				A0EAC7141FD74779000268A3 /* API.swift */,
 				A0EAC71D1FD7477A000268A3 /* API+String.swift */,
 				A0EAC71C1FD7477A000268A3 /* API+URLs.swift */,
-				A0EAC7111FD74779000268A3 /* Models */,
+				A0EAC7121FD74779000268A3 /* Parsers.swift */,
 				A0EAC7151FD7477A000268A3 /* Routers */,
 				A0EAC7251FD7477A000268A3 /* Services */,
 				A0EAC71E1FD7477A000268A3 /* Support */,
@@ -373,15 +363,6 @@
 				847409FAB587F35C2A154594 /* Pods-YellowPodUITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		A0EAC7111FD74779000268A3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A0EAC7121FD74779000268A3 /* Parsers.swift */,
-				A0EAC7131FD74779000268A3 /* Requests.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		A0EAC7151FD7477A000268A3 /* Routers */ = {
@@ -750,7 +731,6 @@
 				A0CD65AA1FD73A8F008A9845 /* String+Ext.swift in Sources */,
 				A0EAC72B1FD7477A000268A3 /* Parsers.swift in Sources */,
 				A0CD65AD1FD73A8F008A9845 /* Date+Ext.swift in Sources */,
-				A0EAC72C1FD7477A000268A3 /* Requests.swift in Sources */,
 				A07246311FE1E6D100236E68 /* Manager.swift in Sources */,
 				A0EAC7391FD7477A000268A3 /* Parser.swift in Sources */,
 				A0CD65AF1FD73A8F008A9845 /* UIImage+Ext.swift in Sources */,

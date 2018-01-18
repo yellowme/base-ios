@@ -14,6 +14,7 @@ protocol RemoteDataSource {
     func serverRequest(
         _ urlRequest: URLRequestConvertible,
         _ parser: Parser?,
+        _ errorHandler: ((Int) -> String?)?,
         _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void
     )
 }
@@ -27,20 +28,22 @@ extension RemoteDataSource {
     func serverRequest(
         _ urlRequest: URLRequestConvertible,
         _ parser: Parser? = nil,
+        //TODO: Create generic way to handle errors
+        _ errorHandler: ((Int) -> String?)? = nil,
         _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void
-    ) {
+        ) {
         debugPrint("REQUEST")
         Alamofire
             .request(urlRequest)
             .responseJSON { response in
                 debugPrint("RESPONSE")
-                //debugPrint(response)
+                debugPrint(response)
                 switch response.result {
                 case .success:
-                    if let value = response.result.value, (200..<300).contains(response.response!.statusCode) {                                        
+                    if let value = response.result.value, (200..<300).contains(response.response!.statusCode) {
                         let json = JSON(value)
                         if let parser = parser {
-                            do {                                
+                            do {
                                 let data = try parser.parse(json)
                                 completion(data, nil)
                             } catch let error as SerializationError {
@@ -54,12 +57,18 @@ extension RemoteDataSource {
                         }
                     } else {
                         //TODO: Handle error response
-                        completion(nil, response.result.error?.localizedDescription)
+                        debugPrint("Error on success")
+                        let error =
+                            errorHandler?(response.response!.statusCode) ??
+                                (response.result.error?.localizedDescription ?? "Error")
+                        completion(nil, error)
                     }
                 case .failure(let error):
+                    debugPrint("Error on failure")
                     print(error)
                     completion(nil, error.localizedDescription)
                 }
         }
     }
 }
+

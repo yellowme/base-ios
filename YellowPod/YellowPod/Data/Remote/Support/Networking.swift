@@ -27,6 +27,12 @@ enum SerializationError: Error {
 extension Keys: Error {}
 
 extension JSON {
+    func parseIfContains(key: Keys, _ block: @escaping (JSON) -> Void) {
+        if self[key.rawValue].exists() {
+            block(parse(key))
+        }
+    }
+    
     func guarantee(hasKeys: Keys...) throws {
         try hasKeys.forEach { key in
             guard self[key.rawValue].exists() else { throw SerializationError.missing(key.rawValue) }
@@ -38,3 +44,17 @@ extension JSON {
     }
 }
 
+//MARK: Overloads
+extension JSON {
+    func parseIfContains(_ key1: Keys, _ key2: Keys, _ block: @escaping (JSON, JSON) -> Void) {
+        if self[key1.rawValue].exists() && self[key2.rawValue].exists() {
+            block(parse(key1), parse(key2))
+        }
+    }
+    
+    func parseIfContains(_ key1: Keys, _ key2: Keys, _ key3: Keys, _ block: @escaping (JSON, JSON, JSON) -> Void) {
+        if self[key1.rawValue].exists() && self[key2.rawValue].exists() && self[key3.rawValue].exists() {
+            block(parse(key1), parse(key2), parse(key3))
+        }
+    }
+}
