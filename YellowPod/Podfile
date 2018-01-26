@@ -7,7 +7,7 @@ target 'YellowPod' do
 
   # Pods for YellowPod
   pod 'Alamofire', '~> 4.5'
-  pod 'SDWebImage', '~>3.8'
+  pod 'SDWebImage', '~>4.0'
   pod 'SwiftyJSON'
   pod 'DefaultsKit'
 
