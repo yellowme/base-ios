@@ -51,8 +51,8 @@ This would create a `Podfile` on the project root. *Note:* Remember this file is
 
 Add the following dependencies to the `Podfile`:
 
-* Alamofire (^4.5)
-* SDWebImage (^3.8)
+* Alamofire
+* SDWebImage
 * SwiftyJSON
 * DefaultsKit
 
