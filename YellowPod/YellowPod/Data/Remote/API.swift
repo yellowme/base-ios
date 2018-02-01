@@ -10,35 +10,12 @@ import Foundation
 import Alamofire
 
 struct APIConstants {
-    private static let URL = "" //HERE: Change to server URL
-    static let apiBaseURL = "\(URL)" //"\(URL)/api/v1"
-}
-
-enum Path: String {
-    //HERE: Define all your resources paths
-    case users = "users"
-}
-
-enum Endpoints {
-    //HERE: Define all your resources endpoint
-    case Users
-    var url: String {
-        switch self {
-        case .Users:
-            return ""
-        }
-    }
+    private static let URL = InfoPlistHelper.lookUpFor(.api) ?? ""
+    static let apiBaseURL = "\(URL)/api/v1"
 }
 
 struct AppHeaders {
     static let authKey = "Authorization"
-    
-    static func getHeaders(token: String?) -> HTTPHeaders {
-        var headers: HTTPHeaders = [:]
-        if let it = token {
-            headers[AppHeaders.authKey] = it
-        }
-        return headers
-    }
+    // HERE: Add your headers keys
 }
 

@@ -12,4 +12,3 @@ import SwiftyJSON
 protocol Parser {
     func parse(_ json: JSON) throws -> [APIModel]?
 }
-

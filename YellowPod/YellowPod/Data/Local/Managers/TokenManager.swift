@@ -4,23 +4,26 @@
 //
 //  Created by Luis Burgos on 11/26/17.
 //  Copyright © 2017 Tripstr. All rights reserved.
-//  
+//
 
 import Foundation
+import DefaultsKit
 
 class TokenManager: LocalDataManager, LocalDataOperations {
-    typealias Model = String
-
+    static let tokenKey = Key<String>(LocalKeys.Token.authToken.rawValue)
+    let defaults = Defaults()
+    
     func save(data: String?) {
-        //defaults.set(data, forKey: LocalKeys.authToken.rawValue)
+        if let data = data {
+            defaults.set(data, for: TokenManager.tokenKey)
+        }
     }
     
     func retrieve() -> String? {
-        //return defaults.string(forKey: LocalKeys.authToken.rawValue) as? String
-        return "Basic YWRtaW46cGFzc3dvcmQxMjM="
+        return defaults.get(for: TokenManager.tokenKey)
     }
     
     func clear() {
-        //defaults.set(nil, forKey: LocalKeys.authToken.rawValue)
+        defaults.clear(TokenManager.tokenKey)
     }
 }

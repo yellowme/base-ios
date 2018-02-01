@@ -8,16 +8,4 @@
 
 import Foundation
 
-private class TokenHolder {
-    var token: String?
-}
-
-class TokenHelper {
-    var token: String {
-        return TokenManager().retrieve() ?? ""
-    }
-    static let shared = TokenHelper()
-    
-    private init() { }
-}
 

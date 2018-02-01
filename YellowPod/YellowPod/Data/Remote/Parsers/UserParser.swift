@@ -9,11 +9,12 @@
 import Foundation
 import SwiftyJSON
 
-//An ARRAY parsing Example
-//guard let userObject = json.parse(.user).array?.first else { throw Keys.user }
+// An ARRAY parsing Example
+// guard let userObject = json.parse(.user).array?.first else { throw Keys.user }
+
 class UserParser: Parser {
     func parse(_ json: JSON) throws -> [APIModel]? {
-        let user = try User.init(json: json)
+        let user = try User.init(json: json.parse(.data))
         return [user]
     }
 }

@@ -18,7 +18,6 @@ extension UIView {
 }
 
 public extension UIView {
-    
     public func cutRounded(){
         self.layer.cornerRadius = 8.0
         self.clipsToBounds = true
