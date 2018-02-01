@@ -467,7 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				A0BD129820239B33000EAF65 /* Managers */,
-				A0BD129C20239B33000EAF65 /* Mock */,
+				A0BD129C20239B33000EAF65 /* Mocks */,
 				A0BD129E20239B33000EAF65 /* Protocols */,
 				A0BD12A020239B33000EAF65 /* Support */,
 			);
@@ -482,12 +482,12 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		A0BD129C20239B33000EAF65 /* Mock */ = {
+		A0BD129C20239B33000EAF65 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
 				A0BD129D20239B33000EAF65 /* MockUserManager.swift */,
 			);
-			path = Mock;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		A0BD129E20239B33000EAF65 /* Protocols */ = {
