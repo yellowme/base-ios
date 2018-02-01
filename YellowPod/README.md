@@ -19,9 +19,9 @@ Here are some common features and how to use the hooks given by this project:
 
 * [Create an API client](./README.md)
 * [Create local storage managers](./README.md)
-* [Use dispatcher to handle user flow](./README.md)
-* [Use the Navigator as complement to Storyboards](./README.md)
-* [Set a placeholder for image loading](./README.md)
-* [Use the MapKit hook component](./README.md)
+* [Use dispatcher to handle user flow](./YellowPod/Presentation/Dispatch/DispatchViewController.swift)
+* [Use the Navigator as complement to Storyboards](./YellowPod/Common/Navigation/README.md)
+* [Set a placeholder for image loading](./YellowPod/Common/Extensions/Images/README.md)
+* [Use the MapKit hook component](./YellowPod/Components/Map/Base/BaseMapViewController.swift)
 * [Use MVP architecture hooks](./YellowPod/Common/ViewPresenter/README.md)
 * [Work with CollectionViews or TableViews](./YellowPod/Common/Extensions/Collections/README.md)

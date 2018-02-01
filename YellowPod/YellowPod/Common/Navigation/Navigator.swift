@@ -12,7 +12,9 @@ import UIKit
 /**
  Define all aplication navigation that depends on storyboards
  */
-open class Navigator { }
+open class Navigator: NavigatorEmbedAware {
+    var embedCases: [Flows] = [] // HERE: Add your embed cases
+}
 
 extension Navigator {
     class func get(controller: Controller, from storyboard: Storyboard, embedInNavigation: Bool = false) -> UIViewController? {

@@ -4,6 +4,8 @@
 
 ## Models
 
+Each model should subscribe to the `APIModel` protocol when working with client-server application. Example:
+
 ```swift
 import Foundation
 import SwiftyJSON
