@@ -1,6 +1,6 @@
 //
 //  MockHelper.swift
-//  Wawa
+//  YellowPod
 //
 //  Created by Luis Burgos on 1/5/18.
 //  Copyright © 2018 Yellowme. All rights reserved.

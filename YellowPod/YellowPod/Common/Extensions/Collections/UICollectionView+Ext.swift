@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum CollectionViewCellIdentifier: String {
-    // HERE: Add yout custom cell identifiers
-    case SimpleCollectionViewCell = "SimpleCollectionViewCell"
-}
-
 extension UICollectionView {
     func dequeue<T: UICollectionViewCell>(_ cell: CollectionViewCellIdentifier, for indexPath: IndexPath, castingTo: T.Type) -> T {
         return dequeueReusableCell(withReuseIdentifier: cell.rawValue, for: indexPath) as! T

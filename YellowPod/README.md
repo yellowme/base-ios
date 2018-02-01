@@ -23,4 +23,5 @@ Here are some common features and how to use the hooks given by this project:
 * [Use the Navigator as complement to Storyboards](./README.md)
 * [Set a placeholder for image loading](./README.md)
 * [Use the MapKit hook component](./README.md)
-* [Use MVP architecture hooks](./README.md)
+* [Use MVP architecture hooks](./YellowPod/Common/ViewPresenter/README.md)
+* [Work with CollectionViews or TableViews](./YellowPod/Common/Extensions/Collections/README.md)

@@ -25,7 +25,7 @@ public extension UIImageView {
             }
             if bordered {
                 if let borderColor = borderColor{
-                    self.addBorder(borderColor, strokeWidth: 3.5)
+                    self.addBorder(borderColor)
                 } else {
                     self.addWhiteBorder()
                 }
