@@ -92,7 +92,7 @@ enum UsersRouter: AuthenticatedRouter {
     func decorate(_ urlRequest: inout URLRequest) throws -> URLRequest {
         switch self {
         case .create(let parameters):
-            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)        
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
         default:
             break
         }

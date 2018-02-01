@@ -7,10 +7,10 @@
   * [Helpers](./YellowPod/Common/Helpers/)
   * [Extensions](./YellowPod/Common/Extensions/)
 * [Components](./YellowPod/Components/)
-* [Data](./YellowPod/Data/)
 * [Domain](./YellowPod/Domain/)
-  * [Local](./YellowPod/Domain/Local/)
-  * [Remote](./YellowPod/Domain/Remote/)
+* [Data](./YellowPod/Data/)
+  * [Local](./YellowPod/Data/Local/)
+  * [Remote](./YellowPod/Data/Remote/)
 * [Presentation](./YellowPod/Presentation/)
 
 ## How to...?
