@@ -21,3 +21,20 @@ extension UIApplication {
         return controller
     }
 }
+
+//MARK: Methods
+
+protocol HasApply { }
+
+extension HasApply {
+    func safeLet(_ closure: (Self) -> ()) -> Void {
+        closure(self)
+    }
+    
+    func apply(_ closure: (Self) -> ()) -> Self {
+        closure(self)
+        return self
+    }
+}
+
+extension NSObject: HasApply { }

@@ -10,6 +10,7 @@ target 'YellowPod' do
   pod 'SDWebImage', '~>4.0'
   pod 'SwiftyJSON'
   pod 'DefaultsKit'
+  pod 'Bugle'
 
   target 'YellowPodTests' do
     inherit! :search_paths

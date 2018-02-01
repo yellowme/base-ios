@@ -1,15 +1,13 @@
 # Project Structure
 
-``` swift
 mx.yellowme.yellowpod
-├─ Support
-├─ Common
-  ├─ Helpers
-  └─ Extensions
-├─ Components
-├─ Data
-├─ Domain
-  ├─ Local
-  └─ Remote
-└─ Presentation
-```
+* ├─ [Config](./YellowPod/Config/)
+* ├─ [Common](./YellowPod/Common/)
+  * ├─ [Helpers](./YellowPod/Common/Helpers/)
+  * └─ [Extensions](./YellowPod/Common/Extensions/)
+* ├─ [Components](./YellowPod/Components/)
+* ├─ [Data](./YellowPod/Data/)
+* ├─ [Domain](./YellowPod/Domain/)
+  * ├─ [Local](./YellowPod/Domain/Local/)
+  * └─ [Remote](./YellowPod/Domain/Remote/)
+* └─ [Presentation](./YellowPod/Presentation/)
