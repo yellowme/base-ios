@@ -40,6 +40,11 @@ extension BaseView where Self: UIViewController {
 
     func display(_ message: String?) {
         guard let message = message else { return }
-        Bugle.shared.play(message, String.appName, on: self)
+        let options: BugleOptions = [
+            .cancel: String.cancel,
+            .title: String.appName,
+            .action:  String.understood
+        ]
+        Bugle.shared.play(message, options, on: self)
     }
 }

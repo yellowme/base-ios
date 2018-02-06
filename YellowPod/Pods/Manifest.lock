@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
-  - Bugle (0.1.0)
+  - Bugle (1.0.0)
   - DefaultsKit (0.0.8)
   - SDWebImage (4.2.3):
     - SDWebImage/Core (= 4.2.3)
@@ -16,7 +16,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  Bugle: 12d3ccd9080b360b9a14f0551cd85f5b6569144c
+  Bugle: eb8a5916c84c17d476001088772d52f6ac6cf211
   DefaultsKit: d4e4271525388e33a17ee6842f2ded78f6892bc7
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa

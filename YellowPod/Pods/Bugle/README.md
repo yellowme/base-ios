@@ -26,7 +26,7 @@ To integrate `Bugle` into your Xcode project, specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '11.0'
 use_frameworks!
 
 target 'MyApp' do
@@ -42,17 +42,10 @@ $ pod install
 
 ## Usage
 
-Setup, the  `shared` instance of `Bugle` inside your `AppDelegate.swift` add:
+In your `application:didFinishLaunchingWithOptions: method`, setup the  `shared` instance of `Bugle`:
 
 ```swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    ...
-
-    Bugle.setup(with: options)
-    
-    ...
-    return true
-}
+Bugle.setup(with: options)
 ```
 
 Where `options` is a configuration struct:
@@ -60,16 +53,18 @@ Where `options` is a configuration struct:
 ```swift
 extension AppDelegate {
     fileprivate var options: BugleOptions {
-        return BugleOptions(
-            tintColor: .customColor,
-            cancelMessage: "No, forget it",
-            commonTitle: String.myAppTitle,
-            commonAction: "Understood",
-            errorTintColor: .customRedOne
-        )
+        return [
+            //.tint: UIColor.green,
+            .cancel: "No",
+            .title: "Bugle App Delegate title!",
+            .action: "Understood",
+            //.errorTint: UIColor.yellow
+        ]
     }
 }
 ```
+
+See the [properties](#properties) section for more information about `BugleOptions` keys and values.
 
 Also, If you want to liste to actions on the dialog just add the `BugleDelegate`:
 
@@ -78,7 +73,7 @@ extension ViewController: BugleDelegate {
     func didConfirm() {
         debugPrint("Confirm bugle")
     }
-    
+
     // This method is optional
     func didCancel() {
         //TODO: Do something
@@ -95,12 +90,28 @@ Bugle.shared.play("Hello World", on: self)
 or you can override some setup:
 
 ```swift
-Bugle.shared.play("Are you sure?", "Push to master", "Yes, I'm a savage", true, self, on: self, type: .risky)
+let options: BugleOptions = [
+    .cancel: "No, forget it",
+    .title: "Are you sure?",
+    .action:  "Yes, I'm a savage",
+]
+Bugle.shared.play("Push to master", options, on: self, ofType: .risky)
 ```
 
-## Author
+## Properties
 
-[Luis Burgos](lhttps://github.com/LuisBurgos/) - [Email me](uisarturo.burgos@gmail.com)
+| Property | Type | Required |
+| --- | --- | --- |
+| title | String | :white_check_mark:
+| action | String | :white_check_mark:
+| cancel | String | :white_check_mark:
+| tint | UIColor | :x:
+| errorTint | UIColor | :x:
+
+## Contributors
+
+* [Luis Burgos](https://github.com/LuisBurgos/) - luisarturo.burgos@gmail.com
+* [María Patrón](https://github.com/maj24/) - mariajose.patron@gmail.com
 
 ## License
 
