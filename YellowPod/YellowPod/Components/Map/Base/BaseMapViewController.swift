@@ -1,6 +1,6 @@
 //
 //  BaseMapViewController.swift
-//  Wawa
+//  YellowPod
 //
 //  Created by Luis Burgos on 12/20/17.
 //  Copyright © 2017 Yellowme. All rights reserved.
@@ -39,16 +39,16 @@ open class BaseMapViewController: UIViewController {
 //MARK: Map Setup
 extension BaseMapViewController {
     internal func initializeBaseMap() {
-        mMapView?.safeLet({ map in
-            if #available(iOS 11.0, *) {
-                map.register(
-                    PointAnnotation.self,
-                    forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier
-                )
-            }
-            (decorator ?? self as? BaseMapViewDecorator)?.decorate()
-            (self as? MapLocationAccessor)?.setupLocationManager()            
-        })
+        guard mMapView != nil else { fatalError("Map view reference must be not nil") }
+        
+        if #available(iOS 11.0, *) {
+            mMapView?.register(
+                PointAnnotation.self,
+                forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier
+            )
+        }
+        (decorator ?? self as? BaseMapViewDecorator)?.decorate()
+        (self as? MapLocationAccessor)?.setupLocationManager()
     }
 }
 

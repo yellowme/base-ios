@@ -10,10 +10,27 @@ import UIKit
 
 class DispatchViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    //MARK: - Outlets
+    @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var messageLabel: UILabel! {
+        didSet {
+            messageLabel.text = "This is a message on the splash!!"
+        }
     }
     
+    //MARK: - Controller
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        makeNavigationBarTransparent()
+        messageLabel.blink()
+        loadData()
+    }
+
+}
+
+extension DispatchViewController {
+    internal func loadData() {
+        // HERE: Handle your application flow depending on user session or another setting
+    }
 }
 

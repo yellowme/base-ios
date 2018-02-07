@@ -14,17 +14,9 @@ protocol TransitionAccessor {
     func getTransition() -> Transition?
 }
 
-//TODO: Extract this definition
 public enum Flows: TransitionAccessor {
     case main
-    case login
-    case accessCode
-    case show
-    case preview
-    case serviceDate
-    case serviceInfo
-    case dispatch
-    case review
+    case login    
     
     func getTransition() -> Transition? {
         //Here you add the Transition combinations on your app
@@ -32,31 +24,30 @@ public enum Flows: TransitionAccessor {
         case .main:
             return (.main, .main)
         case .login:
-            return (.login, .login)
-        case .accessCode:
-            return (.accessCode, .accessCode)
-        case .show:
-            return (.show, .show)
-        case .preview:
-            return (.preview, .preview)
-        case .serviceDate:
-            return (.serviceDate, .serviceDate)
-        case .serviceInfo:
-            return (.serviceInfo, .serviceInfo)
-        case .review:
-            return (.review, .review)
-        case .dispatch:
-            return (.dispatch, .dispatch)
+            return (.login, .login)        
         }
     }
 }
 
-extension Navigator {
-    class func setMainFlow(to flow: Flows) {
+protocol NavigatorEmbedAware {
+    var embedCases: [Flows] { get set }
+}
+
+extension NavigatorEmbedAware where Self: Navigator {
+    func setMainFlow(to flow: Flows) {
         if let transition = flow.getTransition() {
-            //TODO: Refactor
-            let controller = Navigator.get(controller: transition.controller, from: transition.storyboard, embedInNavigation: (flow == .main || flow == .show || flow == .review))
+            let controller = Navigator.get(
+                controller: transition.controller,
+                from: transition.storyboard,
+                embedInNavigation: self.shouldEmbedInNavigation(for: flow)
+            )
             Navigator.set(root: controller)
         }
+    }
+    
+    private func shouldEmbedInNavigation(for flow: Flows) -> Bool {
+        return self.embedCases.filter({ current in
+            return current == flow
+        }).count > 0
     }
 }

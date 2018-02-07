@@ -20,7 +20,9 @@ extension AppRouter {
     }
 }
 
-protocol AuthenticatedRouter: AppRouter {
+//MARK: - Authenticated
+
+protocol AuthenticatedRouter: AppRouter, RequestDecorable {
     var authToken: String { get }
 }
 
@@ -32,7 +34,27 @@ extension AuthenticatedRouter {
     internal func buildAuthRequest() throws -> URLRequest {
         debugPrint("Authenticated build request")
         var urlRequest = try commonRequest()
+        debugPrint("Adding auth token \(authToken)")
         urlRequest.setValue(authToken, forHTTPHeaderField: AppHeaders.authKey)
+        
+        //TODO: Improve HEADER assignation
+        
         return urlRequest
     }
 }
+
+//MARK: - Helper
+
+private class TokenHolder {
+    var token: String?
+}
+
+class TokenHelper {
+    var token: String {
+        return TokenManager().retrieve() ?? ""
+    }
+    static let shared = TokenHelper()
+    
+    private init() { }
+}
+

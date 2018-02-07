@@ -8,9 +8,7 @@
 
 import Foundation
 
-class LocalDataManager {
-    
-}
+protocol LocalDataManager {}
 
 protocol LocalDataOperations {
     associatedtype Model

@@ -1,47 +1,14 @@
 //
-//  UIView+Ext.swift
+//  UIView+Anchors.swift
+//  YellowPod
+//
+//  Created by Luis Burgos on 2/1/18.
+//  Copyright © 2018 Yellowme. All rights reserved.
 //
 
 import UIKit
 
 extension UIView {
-    var parentViewController: UIViewController? {
-        var parentResponder: UIResponder? = self
-        while parentResponder != nil {
-            parentResponder = parentResponder!.next
-            if let viewController = parentResponder as? UIViewController {
-                return viewController
-            }
-        }
-        return nil
-    }
-}
-
-public extension UIView {
-    
-    public func cutRounded(){
-        self.layer.cornerRadius = 8.0
-        self.clipsToBounds = true
-    }
-    
-    public func addBorder(_ borderColor: CGColor, strokeWidth: CGFloat) {
-        self.layer.borderColor = borderColor
-        self.layer.borderWidth = strokeWidth
-    }
-    
-    public func addBorder(withColor: CGColor){
-        self.addBorder(withColor, strokeWidth: 3.5)
-    }
-    
-    public func addWhiteBorder(){
-        self.addBorder(UIColor.white.cgColor, strokeWidth: 3.5)
-    }
-    
-    public func cutCircular(){
-        self.layer.cornerRadius = self.frame.size.width / 2;
-        self.clipsToBounds = true;
-    }
-    
     func anchorToTop(_ top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil) {
         
         anchorWithConstantsToTop(top, left: left, bottom: bottom, right: right, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
@@ -79,5 +46,4 @@ public extension UIView {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
-    
 }

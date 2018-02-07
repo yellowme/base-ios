@@ -10,39 +10,32 @@ import Foundation
 import Alamofire
 
 enum UsersRouter: AuthenticatedRouter {
-    case allUsers
-    case createUser(parameters: Parameters)
-    case updateUser(id: String, parameters: Parameters)
+    case current
+    case create(Parameters)
     
     var method: HTTPMethod {
         switch self {
-        case .allUsers:
+        case .current:
             return .get
-        case .createUser:
+        case .create:
             return .post
-        case .updateUser:
-            return .patch
         }
     }
     
     var path: String {
         switch self {
-        case .allUsers:
-            return URLS.all
-        case .createUser(_):
-            return URLS.create
-        case .updateUser(let id, _):
-            return URLS.update(id: id)
+        case .current:
+            return Endpoints.Users.all.url // TODO: Customize
+        case .create:
+            return Endpoints.Users.all.url
         }
     }
     
     // MARK: Customize Request    
     func decorate(_ urlRequest: inout URLRequest) throws -> URLRequest {
         switch self {
-        case .createUser(let parameters):
-            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
-        case .updateUser(_, let parameters):
-            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+        case .create(let parameters):
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)        
         default:
             break
         }

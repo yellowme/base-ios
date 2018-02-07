@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum TableViewCellIdentifier: String {
-    // HERE: Add yout custom cell identifiers
-    case none = "none"
-}
-
 //MARK: - Helpers
 extension UITableView {
     func dequeue<T: UITableViewCell>(_ cell: TableViewCellIdentifier, for indexPath: IndexPath, castingTo: T.Type) -> T {    

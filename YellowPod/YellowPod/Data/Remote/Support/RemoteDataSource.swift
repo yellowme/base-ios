@@ -14,13 +14,9 @@ protocol RemoteDataSource {
     func serverRequest(
         _ urlRequest: URLRequestConvertible,
         _ parser: Parser?,
-        _ errorHandler: ((Int) -> String?)?,
+        _ errorHandler: HorrorHandler?,
         _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void
     )
-}
-
-protocol AuthenticatedDataSource: RemoteDataSource {
-    //TODO: Evaluate best method to handle this behavior
 }
 
 //MARK: - Generic Request
@@ -28,10 +24,9 @@ extension RemoteDataSource {
     func serverRequest(
         _ urlRequest: URLRequestConvertible,
         _ parser: Parser? = nil,
-        //TODO: Create generic way to handle errors
-        _ errorHandler: ((Int) -> String?)? = nil,
-        _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void
-        ) {
+        _ errorHandler: HorrorHandler? = nil,
+        _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void ) {
+        
         debugPrint("REQUEST")
         Alamofire
             .request(urlRequest)
@@ -40,28 +35,10 @@ extension RemoteDataSource {
                 debugPrint(response)
                 switch response.result {
                 case .success:
-                    if let value = response.result.value, (200..<300).contains(response.response!.statusCode) {
-                        let json = JSON(value)
-                        if let parser = parser {
-                            do {
-                                let data = try parser.parse(json)
-                                completion(data, nil)
-                            } catch let error as SerializationError {
-                                debugPrint(error)
-                                completion(nil, error.localizedDescription)
-                            } catch {
-                                completion(nil, "Error")//TODO: Extract
-                            }
-                        } else{
-                            completion(nil, nil)
-                        }
+                    if let value = response.result.value, (200..<300).contains(response.response!.statusCode) {                                        
+                        self.handleTrueSuccess(JSON(value), parser, completion)
                     } else {
-                        //TODO: Handle error response
-                        debugPrint("Error on success")
-                        let error =
-                            errorHandler?(response.response!.statusCode) ??
-                                (response.result.error?.localizedDescription ?? "Error")
-                        completion(nil, error)
+                        self.handleErrorOnSupposedSuccess(response, errorHandler, completion)
                     }
                 case .failure(let error):
                     debugPrint("Error on failure")
@@ -70,5 +47,37 @@ extension RemoteDataSource {
                 }
         }
     }
+    
+    private func handleErrorOnSupposedSuccess(
+        _ response: DataResponse<Any>,
+        _ errorHandler: HorrorHandler? = nil,
+        _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void) {
+        
+        //TODO: Handle error response
+        debugPrint("Error on success")
+        let error =
+            errorHandler?.horrorHandler(code: response.response!.statusCode) ??
+                (response.result.error?.localizedDescription ?? "Error")
+        completion(nil, error)
+    }
+    
+    private func handleTrueSuccess(
+        _ json: JSON,
+        _ parser: Parser? = nil,
+        _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void) {
+        
+        if let parser = parser {
+            do {
+                let data = try parser.parse(json)
+                completion(data, nil)
+            } catch let error as SerializationError {
+                debugPrint(error)
+                completion(nil, error.localizedDescription)
+            } catch {
+                completion(nil, "Error")//TODO: Extract
+            }
+        } else{
+            completion(nil, nil)
+        }
+    }
 }
-
