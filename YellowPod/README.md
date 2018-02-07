@@ -25,3 +25,7 @@ Here are some common features and how to use the hooks given by this project:
 * [Use the MapKit hook component](./YellowPod/Components/Map/Base/BaseMapViewController.swift)
 * [Use MVP architecture hooks](./YellowPod/Common/ViewPresenter/README.md)
 * [Work with CollectionViews or TableViews](./YellowPod/Common/Extensions/Collections/README.md)
+
+### Style Guide
+
+We are following the [Raywenderlich Styleguide](https://github.com/raywenderlich/swift-style-guide). Please read it before contribue :raised_hand:
