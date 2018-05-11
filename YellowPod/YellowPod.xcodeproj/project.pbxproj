@@ -51,6 +51,9 @@
 		A041DE10202294210026FCB9 /* MKMapView+Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041DE07202294210026FCB9 /* MKMapView+Zoom.swift */; };
 		A041DE11202294210026FCB9 /* MapOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041DE08202294210026FCB9 /* MapOptions.swift */; };
 		A041DE1320229F370026FCB9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041DE1220229F370026FCB9 /* Constants.swift */; };
+		A05B4CAD20A61E6500A76893 /* LoginContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05B4CAC20A61E6500A76893 /* LoginContract.swift */; };
+		A05B4CB020A61FDF00A76893 /* SignUpContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05B4CAF20A61FDF00A76893 /* SignUpContract.swift */; };
+		A05B4CB320A61FF700A76893 /* ForgotPasswordContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05B4CB220A61FF700A76893 /* ForgotPasswordContract.swift */; };
 		A093EC8920A60A55007EED06 /* BaseDispatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093EC8820A60A55007EED06 /* BaseDispatchViewController.swift */; };
 		A0BD12A420239B33000EAF65 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BD127920239B33000EAF65 /* API.swift */; };
 		A0BD12A520239B33000EAF65 /* API+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BD127A20239B33000EAF65 /* API+Endpoints.swift */; };
@@ -153,6 +156,9 @@
 		A041DE07202294210026FCB9 /* MKMapView+Zoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Zoom.swift"; sourceTree = "<group>"; };
 		A041DE08202294210026FCB9 /* MapOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOptions.swift; sourceTree = "<group>"; };
 		A041DE1220229F370026FCB9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A05B4CAC20A61E6500A76893 /* LoginContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContract.swift; sourceTree = "<group>"; };
+		A05B4CAF20A61FDF00A76893 /* SignUpContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContract.swift; sourceTree = "<group>"; };
+		A05B4CB220A61FF700A76893 /* ForgotPasswordContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordContract.swift; sourceTree = "<group>"; };
 		A093EC8820A60A55007EED06 /* BaseDispatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDispatchViewController.swift; sourceTree = "<group>"; };
 		A0BD127920239B33000EAF65 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A0BD127A20239B33000EAF65 /* API+Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API+Endpoints.swift"; sourceTree = "<group>"; };
@@ -376,6 +382,30 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A05B4CAB20A61E5200A76893 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A05B4CAC20A61E6500A76893 /* LoginContract.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A05B4CAE20A61FD300A76893 /* SingUp */ = {
+			isa = PBXGroup;
+			children = (
+				A05B4CAF20A61FDF00A76893 /* SignUpContract.swift */,
+			);
+			path = SingUp;
+			sourceTree = "<group>";
+		};
+		A05B4CB120A61FEB00A76893 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				A05B4CB220A61FF700A76893 /* ForgotPasswordContract.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
 		A0BD127720239B33000EAF65 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,6 +626,9 @@
 		A0CD65921FD73228008A9845 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A05B4CB120A61FEB00A76893 /* ForgotPassword */,
+				A05B4CAE20A61FD300A76893 /* SingUp */,
+				A05B4CAB20A61E5200A76893 /* Login */,
 				A0CD65981FD73932008A9845 /* Dispatch */,
 			);
 			path = Presentation;
@@ -975,6 +1008,7 @@
 				A0CD65631FD72BCC008A9845 /* DispatchViewController.swift in Sources */,
 				A03C126120227F930055B1AF /* UIView+Shape.swift in Sources */,
 				A03C127420227F930055B1AF /* Navigator+Captain.swift in Sources */,
+				A05B4CB020A61FDF00A76893 /* SignUpContract.swift in Sources */,
 				A03C125620227F930055B1AF /* UIViewController+Styles.swift in Sources */,
 				A03C126920227F930055B1AF /* DeviceDetection.swift in Sources */,
 				A0BD12A920239B33000EAF65 /* RemoteKeys.swift in Sources */,
@@ -998,6 +1032,7 @@
 				A03C125420227F930055B1AF /* UIViewController+Gallery.swift in Sources */,
 				A0BD12BE20239B33000EAF65 /* UserManagerProtocol.swift in Sources */,
 				A041DE0A202294210026FCB9 /* BaseMapProtocols.swift in Sources */,
+				A05B4CAD20A61E6500A76893 /* LoginContract.swift in Sources */,
 				A0BD12B620239B33000EAF65 /* RemoteDataSource.swift in Sources */,
 				A0BD12B320239B33000EAF65 /* UsersAPI.swift in Sources */,
 				A093EC8920A60A55007EED06 /* BaseDispatchViewController.swift in Sources */,
@@ -1015,6 +1050,7 @@
 				A03C126B20227F930055B1AF /* StringHelper.swift in Sources */,
 				A041DE0F202294210026FCB9 /* MKMapView+Ext.swift in Sources */,
 				A03C126E20227F930055B1AF /* BaseViewController.swift in Sources */,
+				A05B4CB320A61FF700A76893 /* ForgotPasswordContract.swift in Sources */,
 				A03C125320227F930055B1AF /* UIViewController+BackButton.swift in Sources */,
 				A0CD65611FD72BCC008A9845 /* AppDelegate.swift in Sources */,
 				A0BD12CB2023B5EA000EAF65 /* UIView+Anchors.swift in Sources */,

@@ -32,7 +32,7 @@ protocol BaseView: class {
 
 ## Dispatch
 
-```
+```swift
 protocol DispatcherDelegate {
     func decorateViewIfNeeded()
     func shouldDisplayNoConnection()
@@ -66,7 +66,7 @@ protocol LoginView: BaseView {
 protocol LoginViewPresenter {
     associatedtype APIServiceProtocol
     init(view: LoginView, apiService: APIServiceProtocol)
-    func doLogin(_ name: String?, passsword: String?)
+    func login(_ name: String?, passsword: String?)
 }
 ```
 
@@ -83,6 +83,12 @@ protocol LoginViewPresenter {
 
 import Foundation
 
+struct Credentials {
+    //HERE: Add or change variables
+    let email: String
+    let password: String
+}
+
 protocol SignUpView: BaseView {
     func displayTermsNConditionsNotReadIfNeeded()
     func showLoginScreen(with email: String?)
@@ -92,16 +98,33 @@ protocol SignUpView: BaseView {
 protocol SignUpViewPresenter {
     init(view: SignUpView)
     func updateConfirmTermsNConditions(to hasRead: Bool)
-    func doSignUp(
-        _ name: String?, lastName: String?, phone: String?,
-        email: String?, password: String?, confirmPassword: String?
-    )
+    func signUp(with credentials: Credentials)
 }
 ```
 
 ## Forgot Password
 
 ```swift
+//
+//  ForgotPasswordContract.swift
+//  YellowPod
+//
+//  Created by Luis Burgos on 4/22/17.
+//  Copyright © 2017 Yellowme. All rights reserved.
+//
 
+import Foundation
+
+protocol ForgotPasswordView: BaseView {
+    func showCallerScreen()
+    func showMainScreen()
+    func showSignUp()
+}
+
+protocol ForgotPasswordViewPresenter {
+    init(view: ForgotPasswordView)
+    func requestPasswordRecovery(for email: String)
+    func goToSignUp()
+}
 ```
 
