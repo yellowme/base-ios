@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.5.1)
   - Bugle (1.0.0)
   - DefaultsKit (0.0.8)
+  - ReachabilitySwift (4.1.0)
   - SDWebImage (4.2.3):
     - SDWebImage/Core (= 4.2.3)
   - SDWebImage/Core (4.2.3)
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.5)
   - Bugle
   - DefaultsKit
+  - ReachabilitySwift
   - SDWebImage (~> 4.0)
   - SwiftyJSON
 
@@ -18,9 +20,10 @@ SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Bugle: eb8a5916c84c17d476001088772d52f6ac6cf211
   DefaultsKit: d4e4271525388e33a17ee6842f2ded78f6892bc7
+  ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   SDWebImage: 791bb72962b3492327ddcac4b1880bd1b5458431
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 05bbe976595b822d1c092e42798ea1b27e98fa50
+PODFILE CHECKSUM: 38dec3c323ae2c7c67b8811ece1c08fd74f45b8b
 
 COCOAPODS: 1.4.0.rc.1

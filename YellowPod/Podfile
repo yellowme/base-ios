@@ -11,6 +11,7 @@ target 'YellowPod' do
   pod 'SwiftyJSON'
   pod 'DefaultsKit'
   pod 'Bugle'
+  pod 'ReachabilitySwift'
 
   target 'YellowPodTests' do
     inherit! :search_paths

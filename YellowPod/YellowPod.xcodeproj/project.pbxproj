@@ -51,6 +51,7 @@
 		A041DE10202294210026FCB9 /* MKMapView+Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041DE07202294210026FCB9 /* MKMapView+Zoom.swift */; };
 		A041DE11202294210026FCB9 /* MapOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041DE08202294210026FCB9 /* MapOptions.swift */; };
 		A041DE1320229F370026FCB9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041DE1220229F370026FCB9 /* Constants.swift */; };
+		A093EC8920A60A55007EED06 /* BaseDispatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093EC8820A60A55007EED06 /* BaseDispatchViewController.swift */; };
 		A0BD12A420239B33000EAF65 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BD127920239B33000EAF65 /* API.swift */; };
 		A0BD12A520239B33000EAF65 /* API+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BD127A20239B33000EAF65 /* API+Endpoints.swift */; };
 		A0BD12A620239B33000EAF65 /* InvalidSMSCodeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BD127C20239B33000EAF65 /* InvalidSMSCodeHandler.swift */; };
@@ -152,6 +153,7 @@
 		A041DE07202294210026FCB9 /* MKMapView+Zoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Zoom.swift"; sourceTree = "<group>"; };
 		A041DE08202294210026FCB9 /* MapOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOptions.swift; sourceTree = "<group>"; };
 		A041DE1220229F370026FCB9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A093EC8820A60A55007EED06 /* BaseDispatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDispatchViewController.swift; sourceTree = "<group>"; };
 		A0BD127920239B33000EAF65 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A0BD127A20239B33000EAF65 /* API+Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API+Endpoints.swift"; sourceTree = "<group>"; };
 		A0BD127C20239B33000EAF65 /* InvalidSMSCodeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvalidSMSCodeHandler.swift; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 			children = (
 				A0CD65991FD73974008A9845 /* Dispatch.storyboard */,
 				A0CD65621FD72BCC008A9845 /* DispatchViewController.swift */,
+				A093EC8820A60A55007EED06 /* BaseDispatchViewController.swift */,
 			);
 			path = Dispatch;
 			sourceTree = "<group>";
@@ -890,6 +893,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bugle/Bugle.framework",
 				"${BUILT_PRODUCTS_DIR}/DefaultsKit/DefaultsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -898,6 +902,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bugle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DefaultsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -995,6 +1000,7 @@
 				A041DE0A202294210026FCB9 /* BaseMapProtocols.swift in Sources */,
 				A0BD12B620239B33000EAF65 /* RemoteDataSource.swift in Sources */,
 				A0BD12B320239B33000EAF65 /* UsersAPI.swift in Sources */,
+				A093EC8920A60A55007EED06 /* BaseDispatchViewController.swift in Sources */,
 				A03C127020227F930055B1AF /* PresenterMate.swift in Sources */,
 				A0BD12C82023B543000EAF65 /* UIViewController+Titles.swift in Sources */,
 				A03C125C20227F930055B1AF /* String+Ext.swift in Sources */,

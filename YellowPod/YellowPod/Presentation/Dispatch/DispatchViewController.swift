@@ -8,8 +8,7 @@
 
 import UIKit
 
-class DispatchViewController: UIViewController {
-
+class DispatchViewController: BaseDispatchViewController {
     //MARK: - Outlets
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel! {
@@ -18,19 +17,33 @@ class DispatchViewController: UIViewController {
         }
     }
     
-    //MARK: - Controller
     override func viewDidLoad() {
         super.viewDidLoad()
+        dispatcher.delegate = self
+    }
+    
+    override func decorateViewIfNeeded() {
         makeNavigationBarTransparent()
         messageLabel.blink()
-        loadData()
     }
-
 }
 
-extension DispatchViewController {
-    internal func loadData() {
+extension DispatchViewController: DispatcherDelegate {
+    func willLoadData() {
         // HERE: Handle your application flow depending on user session or another setting
+    }
+    
+    func willLoadPreferences() {
+        // HERE: Load info from user defaults
+    }
+    
+    func shouldDisplayNoConnection() {
+        // HERE: Change the main label message
+        // messageLabel.text = String.noNetworkConnection
+    }
+    
+    func shouldUpdateView() {
+        // HERE: Make all your view updates after the connection has been validated
     }
 }
 
