@@ -8,7 +8,7 @@ This repo contains default implementation for common feautures like:
 
 **Note:** This definition is using the MVP pattern approach.
 
-### BaseView
+### BaseView
 
 ```swift
 //
@@ -44,7 +44,7 @@ protocol DispatcherDelegate {
 
 **Note:** You must extend the class [`BaseDispatchViewController`](./Dispatch/BaseDispatchViewController.swift) in order to add your own implementation.
 
-## Login
+## Login
 
 ```swift
 //
@@ -70,7 +70,7 @@ protocol LoginViewPresenter {
 }
 ```
 
-## Sign Up
+## Sign Up
 
 ```swift
 //
@@ -102,7 +102,7 @@ protocol SignUpViewPresenter {
 }
 ```
 
-## Forgot Password
+## Forgot Password
 
 ```swift
 //
