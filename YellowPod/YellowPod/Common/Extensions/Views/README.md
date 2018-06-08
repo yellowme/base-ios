@@ -4,7 +4,7 @@
 
 Animate views with a shimmer like blinking animation by calling `.blink()` - Defined on [UIView+Blink](./UIView+Blink.swift)
 
-## Shapes
+## Shapes
 
 For layers:
 
