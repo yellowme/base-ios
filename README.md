@@ -25,7 +25,7 @@ git clone git@github.com:yellowme/base-ios.git
 
 Considerations:
 
-* When you select the name for your project make sure you are using capitalized words. 
+* When you select the name for your project make sure you are using capitalized words.
   * Examples: *Wawa*, *Kiiwk*, *Semple*.
 * The bundle identifier for our company is `mx.yellowme`.
 * Make sure the options `Include UI Tests` and `Include Unit Tests` are checked.
@@ -39,6 +39,7 @@ To follow a better structure, you should relocate the `Info.plist` file.
 1. You could do this by going to project `Build Settings` under `Packaging` section.
 2. Find the `Info.plist File` setting.
 3. Considering that you moved the `.plist` file, change this setting value to: `$(PRODUCT_NAME)/Config/Info.plist`.
+3. Relocate `Info.plist` to Config folder.
 
 You could also relocate the `Assets.xcassets` folder by simple dragging and moving to a new folder location. Check [this lib](./YellowPod/YellowPod/Config) result example.
 
@@ -79,7 +80,7 @@ pod install
 You could achieve this in two ways:
 
 1. Drag and drop the all folders onto the Xcode and select the `Create groups` option on theprompted dialog.
-2. *Right click* above your main project folder and select `Add Files to "ProjectName"..` and select the folder `Support` from the `YellowPod` library wherever you downloaded it.
+2. *Right click* above your main project folder and select `Add Files to "ProjectName"..` and select the folder `Commons` from the `YellowPod` library wherever you downloaded it.
 
 ## Contributors
 
