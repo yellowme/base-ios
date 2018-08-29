@@ -6,22 +6,7 @@
 
 This could be any domain model, like `User`, `Todo`, `Book`, `Repository`, etc..
 
-## 2. Add your model keys
-
-Locate the file [RemoteKeys](./Support/RemoteKeys.swift) and add a `case` inside the RemoteKeys `enum`
-
-```swift
-enum RemoteKeys: String {
-    case password = "password"
-    case email = "email"
-    case id = "id"
-    case data = "data"
-
-    ...
-}
-```
-
-## 3. Create the Endpoints
+## 2. Create the Endpoints
 
 Inside the file [API+Endpoints](./API+Endpoints.swift) locate the `Endpoints` enum and add your `RemoteResource` enum definition. For example:
 
@@ -52,7 +37,7 @@ enum Endpoints {
 }
 ```
 
-## 4. Create the Protocol
+## 3. Create the Protocol
 
 Inside the folder [Protocols](./Protocols) create a new Swift file in which your going to define the protocol for your service. For example:
 
@@ -62,7 +47,7 @@ protocol UsersAPIProtocol: RemoteDataSource {
 }
 ```
 
-## 5. Create the Router
+## 4. Create the Router
 
 Inside the folder [Routers](./Routers) create a new Swift file which subscribes to the protocol created on `Step 3`. 
 Here your going to use the keys added on the `Step 1`.
@@ -103,7 +88,7 @@ enum UsersRouter: AuthenticatedRouter {
 }
 ```
 
-## 6. Create the `Service` class
+## 5. Create the `Service` class
 
 ```swift
 import Foundation
@@ -127,6 +112,6 @@ class UsersAPI: UsersAPIProtocol {
 
 **Important:** Use the `serverRequest` method and remember to import `Alamofire`.
 
-## 7. Create the MOCK
+## 6. Create the MOCK
 
 Inside the folder [Mocks](./Mocks) create a new Swift file with `fake` implementation for the recently created service. This is a good practice for `testing` or `debugging`.

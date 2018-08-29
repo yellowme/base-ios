@@ -4,7 +4,6 @@
 
 **IMPORTANT:** `Remote` folder uses:
 
-* `RemoteKeys.swift` file to define all access keys.
 * `API.swift` file to define API constatns like keys for headers or the base URL for all the requests.
 * `API+Endpoints.swift` file to define all `Endpoints` inside a common enumrator to keep API access definition in one file.
 

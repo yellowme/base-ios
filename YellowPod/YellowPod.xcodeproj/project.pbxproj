@@ -19,7 +19,6 @@
 		A0229090213676A600542759 /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0229078213676A600542759 /* UsersRouter.swift */; };
 		A0229091213676A600542759 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0229079213676A600542759 /* Router.swift */; };
 		A0229092213676A600542759 /* API+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022907A213676A600542759 /* API+Endpoints.swift */; };
-		A0229093213676A600542759 /* RemoteKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022907B213676A600542759 /* RemoteKeys.swift */; };
 		A0229095213676A600542759 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022907E213676A600542759 /* RemoteDataSource.swift */; };
 		A0229096213676A600542759 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022907F213676A600542759 /* API.swift */; };
 		A0229097213676A600542759 /* HorrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0229081213676A600542759 /* HorrorHandler.swift */; };
@@ -113,7 +112,6 @@
 		A0229078213676A600542759 /* UsersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
 		A0229079213676A600542759 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A022907A213676A600542759 /* API+Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API+Endpoints.swift"; sourceTree = "<group>"; };
-		A022907B213676A600542759 /* RemoteKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteKeys.swift; sourceTree = "<group>"; };
 		A022907E213676A600542759 /* RemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
 		A022907F213676A600542759 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A0229081213676A600542759 /* HorrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorrorHandler.swift; sourceTree = "<group>"; };
@@ -270,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				A022907A213676A600542759 /* API+Endpoints.swift */,
-				A022907B213676A600542759 /* RemoteKeys.swift */,
 				A022907F213676A600542759 /* API.swift */,
 				A0229075213676A600542759 /* Mocks */,
 				A0229077213676A600542759 /* Routers */,
@@ -949,7 +946,6 @@
 				A03C127320227F930055B1AF /* NavigationHelper+Transition.swift in Sources */,
 				A0229091213676A600542759 /* Router.swift in Sources */,
 				A041DE1320229F370026FCB9 /* Constants.swift in Sources */,
-				A0229093213676A600542759 /* RemoteKeys.swift in Sources */,
 				A0229089213676A600542759 /* MockUserManager.swift in Sources */,
 				A03C127120227F930055B1AF /* CLGeocoder+Ext.swift in Sources */,
 				A03C125420227F930055B1AF /* UIViewController+Gallery.swift in Sources */,

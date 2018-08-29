@@ -24,9 +24,3 @@ enum SerializationError: Error {
         }
     }
 }
-
-/**
- Here we enable to throw a Key as error
- */
-extension RemoteKeys: Error {}
-
