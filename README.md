@@ -90,3 +90,4 @@ You could achieve this in two ways:
 
 * [Luis Burgos](https://github.com/LuisBurgos)
 * [María Patrón](https://github.com/maj24)
+* [Isis Ramirez](https://github.com/isisnaomi)
