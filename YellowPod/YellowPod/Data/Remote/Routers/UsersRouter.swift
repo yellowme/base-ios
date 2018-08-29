@@ -10,6 +10,11 @@ import Foundation
 import Alamofire
 
 enum UsersRouter: AuthenticatedRouter {
+    var authToken: String {
+        //TODO: Change access to TokenHolder or something
+        return ""
+    }
+    
     case current
     case create(Parameters)
     

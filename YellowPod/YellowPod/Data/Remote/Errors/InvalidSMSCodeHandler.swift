@@ -8,11 +8,12 @@
 
 import Foundation
 
-class InvalidSMSCodeHandler: HorrorHandler {
+//EXAMPLE
+/*class InvalidSMSCodeHandler: HorrorHandler {
     func horrorHandler(code: Int) -> String? {
         if code == 422 {
             return String.invalidCodeMsg
         }
         return nil
     }
-}
+}*/

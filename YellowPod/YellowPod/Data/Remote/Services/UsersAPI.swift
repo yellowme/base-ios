@@ -11,13 +11,15 @@ import Alamofire
 
 class UsersAPI: UsersAPIProtocol {
     func getCurrent(completion: @escaping (User?, String?) -> Void) {
-        self.serverRequest(UsersRouter.current, UserParser()) { (user, error) in
+        let request = ServerRequest<User>(endPoint: UsersRouter.current) { user, error in
             guard error == nil else {
-                completion(nil, error)
+                completion(nil, error?.localizedDescription ?? "Error has ocurred")
                 return
             }
             debugPrint(user ?? "No user")
-            completion((user as? [User])?.first, nil)
+            completion(user, nil)
         }
+        
+        serverRequest(request)
     }
 }

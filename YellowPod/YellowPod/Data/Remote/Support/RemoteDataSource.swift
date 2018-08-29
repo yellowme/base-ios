@@ -8,76 +8,106 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
+
+public class ServerRequest<Model: Decodable> {
+    public typealias CompletionHandler = (Model?, Error?) -> Void
+    
+    // no further changes
+    public var completionHandler: CompletionHandler
+    public var endPoint: URLRequestConvertible
+    
+    public init(endPoint: URLRequestConvertible, completionHandler: @escaping CompletionHandler) {
+        self.endPoint = endPoint
+        self.completionHandler = completionHandler
+    }
+}
 
 protocol RemoteDataSource {
-    func serverRequest(
-        _ urlRequest: URLRequestConvertible,
-        _ parser: Parser?,
-        _ errorHandler: HorrorHandler?,
-        _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void
+    func serverRequest<Model: Decodable>(
+        _ request: ServerRequest<Model>,
+        _ errorHandler: HorrorHandler?
     )
 }
 
 //MARK: - Generic Request
 extension RemoteDataSource {
-    func serverRequest(
-        _ urlRequest: URLRequestConvertible,
-        _ parser: Parser? = nil,
-        _ errorHandler: HorrorHandler? = nil,
-        _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void ) {
-        
+    func serverRequest<Model: Decodable>(
+        _ request: ServerRequest<Model>,
+        _ errorHandler: HorrorHandler? = nil) {
         debugPrint("REQUEST")
         Alamofire
-            .request(urlRequest)
+            .request(request.endPoint)
             .responseJSON { response in
                 debugPrint("RESPONSE")
                 debugPrint(response)
                 switch response.result {
                 case .success:
-                    if let value = response.result.value, (200..<300).contains(response.response!.statusCode) {                                        
-                        self.handleTrueSuccess(JSON(value), parser, completion)
+                    if (200..<300).contains(response.response!.statusCode) {
+                        self.handleTrueSuccess(response, request)
                     } else {
-                        self.handleErrorOnSupposedSuccess(response, errorHandler, completion)
+                        self.handleErrorOnSupposedSuccess(response, errorHandler, request)
                     }
                 case .failure(let error):
                     debugPrint("Error on failure")
                     print(error)
-                    completion(nil, error.localizedDescription)
+                    request.completionHandler(nil, error)
                 }
         }
     }
     
-    private func handleErrorOnSupposedSuccess(
+    private func handleErrorOnSupposedSuccess<Model: Decodable>(
         _ response: DataResponse<Any>,
         _ errorHandler: HorrorHandler? = nil,
-        _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void) {
+        _ request: ServerRequest<Model>) {
         
         //TODO: Handle error response
         debugPrint("Error on success")
         let error =
             errorHandler?.horrorHandler(code: response.response!.statusCode) ??
                 (response.result.error?.localizedDescription ?? "Error")
-        completion(nil, error)
+        
+        request.completionHandler(nil, error)
     }
     
-    private func handleTrueSuccess(
-        _ json: JSON,
-        _ parser: Parser? = nil,
-        _ completion: @escaping (_ data: [APIModel]?, _ error : String?) -> Void) {
+    private func handleTrueSuccess<Model: Decodable>(
+        _ response: DataResponse<Any>,
+        _ request: ServerRequest<Model>) {
         
-        if let parser = parser {
-            do {
-                let data = try parser.parse(json)
-                completion(data, nil)
-            } catch let error as SerializationError {
-                debugPrint(error)
-                completion(nil, error.localizedDescription)
-            } catch {
-                completion(nil, "Error")//TODO: Extract
-            }
-        } else{
-            completion(nil, nil)
+        let decoder = JSONDecoder()
+        let data: Result<Model> = decoder.decodeResponse(from: response)
+        switch data {
+        case .failure(let error):
+            request.completionHandler(nil, error)
+        default:
+            request.completionHandler(data.value, nil)
+        }
+        
+    }
+}
+
+//MARK: - Decoder
+
+/// Simply allow to throw strings as Error
+extension String: Error {}
+
+extension JSONDecoder {
+    /// Reference: https://grokswift.com/decodable-with-alamofire-4/
+    func decodeResponse<T: Decodable>(from response: DataResponse<Any>) -> Result<T> {
+        guard response.error == nil else {
+            print(response.error!)
+            return .failure(response.error!)
+        }
+        
+        guard let responseData = response.data else {
+            print("didn't get any data from API")
+            return .failure("Did not get data in response")
+        }
+        
+        do {
+            let item = try decode(T.self, from: responseData)
+            return .success(item)
+        } catch {
+            return .failure(error)
         }
     }
 }
