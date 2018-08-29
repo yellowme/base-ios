@@ -9,9 +9,18 @@ This could be any domain model, like `User`, `Todo`, `Book`, `Repository`, etc..
 Locate the file [LocalKeys](./Support/LocalKeys.swift) and add an `enum` class inside the `LocalKeys` class:
 
 ```swift
-enum Token: String {
-    case authToken = "token-auth"
+enum LocalKeys {
+    enum User: String {
+        case current = "user-current"
+    }
+
+    enum Token: String {
+        case authToken = "token-auth"
+    }
+
+    //HERE: Add your custom keys
 }
+
 ```
 
 ## 3. Create the Protocol
@@ -32,9 +41,27 @@ Inside the folder [Managers](./Managers) create a new Swift file which subscribe
 Here your going to use the keys added on the `Step 1`.
 
 ```swift
+class UserManager: UserManagerProtocol {
+    func save(user: User?) {
+
+    }
+
+    func retrieve() -> User? {
+        return nil
+    }
+
+    func clear() {
+
+    }
+}
+```
+
+Alternatively, you could use `DefaultsKit` pod dependency to easily implement *UserDefaults* access:
+
+```swift
 import DefaultsKit
 
-class TokenManager: LocalDataManager, LocalDataOperations {
+class TokenManager: TokenManagerProtocol {
     static let tokenKey = Key<String>(LocalKeys.Token.authToken.rawValue)
     let defaults = Defaults()
 

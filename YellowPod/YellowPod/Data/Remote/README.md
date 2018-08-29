@@ -1,5 +1,7 @@
 # How to Create an API client
 
+*Note:* Before start follow the indications for our [Domain](https://github.com/yellowme/base-ios/tree/master/YellowPod/YellowPod/Domain) layer
+
 ## 1. Identifiy the API resource your working with
 
 This could be any domain model, like `User`, `Todo`, `Book`, `Repository`, etc..
@@ -109,14 +111,16 @@ import Alamofire
 
 class UsersAPI: UsersAPIProtocol {
     func getCurrent(completion: @escaping (User?, String?) -> Void) {
-        self.serverRequest(UsersRouter.current, UserParser()) { (user, error) in
+        let request = ServerRequest<User>(endPoint: UsersRouter.current) { user, error in
             guard error == nil else {
-                completion(nil, error)
+                completion(nil, error?.localizedDescription ?? "Custom error message")
                 return
             }
             debugPrint(user ?? "No user")
-            completion((user as? [User])?.first, nil)
+            completion(user, nil)
         }
+
+        serverRequest(request)
     }
 }
 ```

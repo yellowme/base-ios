@@ -4,48 +4,40 @@
 
 ## Models
 
-Each model should subscribe to the `APIModel` protocol when working with client-server application. Then you need to implement the `init(json: JSON)` method. You could achieve this by using an extension:
+Each model should subscribe to the `Codable` protocol when working with client-server application. Then you need to define a set of coding keys as a private enum:
 
 ```swift
-extension YourDomainModel: APIModel {
-    init(json: JSON) throws {
-        //HERE: - Map all variables. Go to "Networking+Keys" and define all your keys
+struct YourDomainModel: Codable {
+    //HERE add your model attributes
 
-        //HERE: - 1. Validate keys you want
-        //try json.guarantee(hasKeys: .id, .name)
-
-        //HERE: - 2. Obtain values from keys
-        //guard let id = json.parse(.id).string else { throw Keys.id }
-        //guard let name = json.parse(.name).string else { throw Keys.name }
-
-        //HERE: - 3. Assign the parsed values
-        //self.id = id
-        //self.name = name
+    private enum CodingKeys: CodingKey {
+      //HERE add your attributes keys
     }
 }
 ```
+
+For more information about `CodingKeys` please read [Apple Documentation](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)
 
 Example:
 
 ```swift
 import Foundation
-import SwiftyJSON
 
-struct Session {
-  let token: String
-  let userId: String
-}
+struct Pokemon: Codable {
+    let id: String?
+    let types: [String]?
+    let region: String?
+    let generation: String?
+    let imageURL: String?
+    let name: String?
 
-extension Session: APIModel {
-  init(json: JSON) throws {
-    try json.guarantee(hasKeys: .token, .userId)
-
-    guard let token = json.parse(.token).string else { throw Keys.token }
-    guard let userId = json.parse(.userId).string else { throw Keys.userId }
-
-    self.token = token
-    self.userId = userId
-  }
+    private enum CodingKeys: CodingKey {
+        case id
+        case types
+        case region
+        case generation
+        case imageURL
+        case name
+    }
 }
 ```
-

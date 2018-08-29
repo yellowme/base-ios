@@ -28,4 +28,4 @@ Here are some common features and how to use the hooks given by this project:
 
 ### Style Guide
 
-We are following the [Raywenderlich Styleguide](https://github.com/raywenderlich/swift-style-guide). Please read it before contribue :raised_hand:
+We are following the [Raywenderlich Styleguide](https://github.com/raywenderlich/swift-style-guide) and using [recipes](https://github.com/yellowme/guides/blob/master/code-review/SWIFT.md) as guide for our coding process. Please read it before contribue :raised_hand:
