@@ -9,8 +9,8 @@
 import Foundation
 
 enum InfoPlistKey: String {
-    case googleMaps = "GOOGLE_MAPS_API_KEY"
-    case api = "CORE_API_URL"
+    case googleMaps = "GoogleMapsAPIKey"
+    case api = "CoreAPIURL"
 }
 
 class InfoPlistHelper {
