@@ -17,6 +17,7 @@ protocol AppRouter: URLRequestConvertible {
 }
 
 //MARK: - URL Builder
+
 extension AppRouter {
     internal func commonRequest() throws -> URLRequest {
         var urlRequest = try URLRequest(url: path.asURL())
@@ -25,11 +26,15 @@ extension AppRouter {
     }
     
     func asURLRequest() throws -> URLRequest {
-        return try self.buildRequest()
+        var urlRequest = try self.buildRequest()
+        if let decorable = self as? RequestDecorable {
+            urlRequest = try decorable.decorate(&urlRequest)
+        }
+        return urlRequest
     }
 }
 
-//MARK: Authentication Header Interceptor
+//MARK: - Authentication Header Interceptor
 
 extension AppRouter {
     func buildRequest() throws -> URLRequest {
@@ -37,7 +42,15 @@ extension AppRouter {
     }
 }
 
+//MARK: - Decoration
+
+/// Allows URL decoration for parameters
+protocol RequestDecorable {
+    func decorate(_ urlRequest: inout URLRequest) throws -> URLRequest
+}
+
 //MARK: - Authenticated
+
 protocol AuthenticatedRouter: AppRouter {
     var authToken: String { get }
 }
