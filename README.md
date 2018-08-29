@@ -6,8 +6,9 @@ This is a base project skeleton used on our iOS projects. You can refer here to 
 
 * Xcode 9 or above
 * iOS 11 or above
+* Cocoapods 1.5.3 or above
 
-## Where to start? Get the YellowPod!
+## Where to start? Get the YellowPod
 
 ### 1. First clone this repo
 
@@ -26,7 +27,7 @@ git clone git@github.com:yellowme/base-ios.git
 Considerations:
 
 * When you select the name for your project make sure you are using capitalized words.
-  * Examples: *Wawa*, *Kiiwk*, *Semple*.
+  * Examples: *Wawa*, *Kiiwk*, *Semple*. *Enso*
 * The bundle identifier for our company is `mx.yellowme`.
 * Make sure the options `Include UI Tests` and `Include Unit Tests` are checked.
 
@@ -36,18 +37,22 @@ Considerations:
 
 To follow a better structure, you should relocate the `Info.plist` file.
 
-1. You could do this by going to project `Build Settings` under `Packaging` section.
-2. Find the `Info.plist File` setting.
-3. Considering that you moved the `.plist` file, change this setting value to: `$(PRODUCT_NAME)/Config/Info.plist`.
-3. Relocate `Info.plist` to Config folder.
+1. Create a `Config` group (Be sure is also created in your file system using Show in Finder option)
+2. You could do this by going to project `Build Settings` under `Packaging` section.
+3. Find the `Info.plist File` setting.
+4. Considering that you moved the `.plist` file inside the recently created `Config`, change this setting value to: `$(PRODUCT_NAME)/Config/Info.plist`.
+5. Relocate `Info.plist` to Config folder.
 
-You could also relocate the `Assets.xcassets` folder by simple dragging and moving to a new folder location. Check [this lib](./YellowPod/YellowPod/Config) result example.
+Check [this folder](./YellowPod/YellowPod/Config) result example.
 
-*Note:* The `Build Settings` section is inside the project details and you can access by clicking the blue/white icon which represents the project on your Xcode left panel.
+*Notes:*
+
+* The `Build Settings` section is inside the project details and you can access by clicking the blue/white icon which represents the project on your Xcode left panel.
+* You could also relocate the `Assets.xcassets` folder by simple dragging and moving to a new folder location like the `Config` folder.
 
 ### 4. Prepare the project to support `CocoaPods`
 
-*Note:* Install cocoapods support https://cocoapods.org/
+*Note:* Be sure to already have installed cocoapods support https://cocoapods.org/
 
 Open your terminal and locate on your project folder. Now you need to tnitialize the pod support by executing:
 
@@ -61,7 +66,6 @@ Add the following dependencies to the `Podfile`:
 
 * Alamofire
 * SDWebImage
-* SwiftyJSON
 * DefaultsKit
 * [Bugle](https://github.com/yellowme/Bugle) (One of our pods)
 
