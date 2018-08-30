@@ -1,6 +1,9 @@
 # How to Create an API client
 
-*Note:* Before start follow the indications for our [Domain](https://github.com/yellowme/base-ios/tree/master/YellowPod/YellowPod/Domain) layer
+*Notes:* 
+
+* Before start follow the indications for our [Domain](https://github.com/yellowme/base-ios/tree/master/YellowPod/YellowPod/Domain) layer.
+* Don't forget to add a `key-value` inside your `Info.plist` and `.xcconfig` files. We use a base URL value reference inside the [APIConstants](https://github.com/yellowme/base-ios/blob/master/YellowPod/YellowPod/Data/Remote/API.swift) class. We recommend to use `CoreAPIURL` as key for your *plist* file.
 
 ## 1. Identifiy the API resource your working with
 
@@ -13,26 +16,45 @@ Inside the file [API+Endpoints](./API+Endpoints.swift) locate the `Endpoints` en
 ```swift
 enum Endpoints {
     enum Users: RemoteResource {
-        case find(userId: String)
-        case all
+        case find
+        case update
         case create
-
+        case authenticate
+        
         var endpoint: String {
             switch self {
-            case .find(let userId):
-                return "\(url)\(userId)"
-            case .all:
-                return url
-            case .create:
+            case .authenticate:
+                return "\(url)authenticate/"
+            default:
                 return url
             }
         }
-
+        
         var url: String {
-            return  "\(APIConstants.apiBaseURL)/user/"
+            return  "\(APIConstants.apiBaseURL)/users/"
         }
     }
 
+    enum Notifications: RemoteResource {
+        case find(id: String)
+        case delete(id: String)
+        case deleteAll
+        case list
+        
+        var endpoint: String {
+            switch self {
+            case .find(let id), .delete(let id):
+                return "\(url)\(id)/"
+            default:
+                return url
+            }
+        }
+        
+        var url: String {
+            return  "\(APIConstants.apiBaseURL)/notifications/"
+        }
+    }
+    
     // HERE: Add your custom endpoints
 }
 ```
@@ -56,30 +78,40 @@ Here your going to use the keys added on the `Step 1`.
 enum UsersRouter: AuthenticatedRouter {
     case current
     case create(Parameters)
-
+    case update(Parameters)
+    case login(Parameters)
+    
     var method: HTTPMethod {
         switch self {
         case .current:
             return .get
         case .create:
             return .post
+        case .update(_):
+            return .put
+        case .login(_):
+            return .post
         }
     }
-
+    
     var path: String {
         switch self {
         case .current:
-            return Endpoints.Users.all.url // TODO: Customize
+            return Endpoints.Users.find.url
         case .create:
-            return Endpoints.Users.all.url
+            return Endpoints.Users.create.url
+        case .update(_):
+            return Endpoints.Users.update.url
+        case .login(_):
+            return Endpoints.Users.authenticate.url
         }
     }
-
-    // MARK: Customize Request
+    
+    // MARK: Add body or query params
     func decorate(_ urlRequest: inout URLRequest) throws -> URLRequest {
         switch self {
         case .create(let parameters):
-            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)        
         default:
             break
         }
@@ -98,13 +130,13 @@ class UsersAPI: UsersAPIProtocol {
     func getCurrent(completion: @escaping (User?, String?) -> Void) {
         let request = ServerRequest<User>(endPoint: UsersRouter.current) { user, error in
             guard error == nil else {
-                completion(nil, error?.localizedDescription ?? "Custom error message")
+                completion(nil, error?.localizedDescription ?? "Error has ocurred")
                 return
             }
             debugPrint(user ?? "No user")
             completion(user, nil)
         }
-
+        
         serverRequest(request)
     }
 }
