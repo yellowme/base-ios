@@ -56,7 +56,12 @@ class UserManager: UserManagerProtocol {
 }
 ```
 
-Alternatively, you could use `DefaultsKit` pod dependency to easily implement *UserDefaults* access:
+Alternatively, you could use `DefaultsKit` pod dependency to easily implement *UserDefaults* access.
+
+**IMPORTANT**:
+
+* Use `if-let` statement to help xcode compiler identifiying the type of the Key<>. Do not use `guard` statement.
+* Remember to import `DefaultsKit`.
 
 ```swift
 import DefaultsKit
@@ -80,8 +85,6 @@ class TokenManager: TokenManagerProtocol {
     }
 }
 ```
-
-*Note:* Remember to import `DefaultsKit`.
 
 ## 5. Create the MOCK
 
