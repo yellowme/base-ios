@@ -11,9 +11,7 @@
 		34FEBDC1BD12667A5B4E9F37 /* Pods_YellowPod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B941BF62AF30E905C104E0 /* Pods_YellowPod.framework */; };
 		5EF5FFD5591E207DF4C377B1 /* Pods_YellowPodUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5CD8CCFA2D0EB520B49EC4 /* Pods_YellowPodUITests.framework */; };
 		A0229089213676A600542759 /* MockUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022906B213676A600542759 /* MockUserManager.swift */; };
-		A022908A213676A600542759 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022906D213676A600542759 /* UserManager.swift */; };
-		A022908B213676A600542759 /* LocalKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022906E213676A600542759 /* LocalKeys.swift */; };
-		A022908D213676A600542759 /* UserManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0229071213676A600542759 /* UserManagerProtocol.swift */; };
+		A022908A213676A600542759 /* Managers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022906D213676A600542759 /* Managers.swift */; };
 		A022908E213676A600542759 /* MockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0229073213676A600542759 /* MockHelper.swift */; };
 		A022908F213676A600542759 /* MocksUsersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0229076213676A600542759 /* MocksUsersAPI.swift */; };
 		A0229090213676A600542759 /* UsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0229078213676A600542759 /* UsersRouter.swift */; };
@@ -67,6 +65,8 @@
 		A041DE10202294210026FCB9 /* MKMapView+Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041DE07202294210026FCB9 /* MKMapView+Zoom.swift */; };
 		A041DE11202294210026FCB9 /* MapOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041DE08202294210026FCB9 /* MapOptions.swift */; };
 		A041DE1320229F370026FCB9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041DE1220229F370026FCB9 /* Constants.swift */; };
+		A0A84198213B28D200764560 /* LocalDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A84197213B28D200764560 /* LocalDataSourceManager.swift */; };
+		A0A8419A213B3EE600764560 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A84199213B3EE600764560 /* Session.swift */; };
 		A0BD12C62023B357000EAF65 /* CollectionsIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BD12C52023B357000EAF65 /* CollectionsIdentifiers.swift */; };
 		A0BD12C82023B543000EAF65 /* UIViewController+Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BD12C72023B543000EAF65 /* UIViewController+Titles.swift */; };
 		A0BD12CB2023B5EA000EAF65 /* UIView+Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BD12CA2023B5EA000EAF65 /* UIView+Anchors.swift */; };
@@ -104,9 +104,7 @@
 		6A5CD8CCFA2D0EB520B49EC4 /* Pods_YellowPodUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YellowPodUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		847409FAB587F35C2A154594 /* Pods-YellowPodUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YellowPodUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YellowPodUITests/Pods-YellowPodUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A022906B213676A600542759 /* MockUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUserManager.swift; sourceTree = "<group>"; };
-		A022906D213676A600542759 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		A022906E213676A600542759 /* LocalKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalKeys.swift; sourceTree = "<group>"; };
-		A0229071213676A600542759 /* UserManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManagerProtocol.swift; sourceTree = "<group>"; };
+		A022906D213676A600542759 /* Managers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Managers.swift; sourceTree = "<group>"; };
 		A0229073213676A600542759 /* MockHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHelper.swift; sourceTree = "<group>"; };
 		A0229076213676A600542759 /* MocksUsersAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MocksUsersAPI.swift; sourceTree = "<group>"; };
 		A0229078213676A600542759 /* UsersRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersRouter.swift; sourceTree = "<group>"; };
@@ -160,6 +158,8 @@
 		A041DE07202294210026FCB9 /* MKMapView+Zoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Zoom.swift"; sourceTree = "<group>"; };
 		A041DE08202294210026FCB9 /* MapOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOptions.swift; sourceTree = "<group>"; };
 		A041DE1220229F370026FCB9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A0A84197213B28D200764560 /* LocalDataSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSourceManager.swift; sourceTree = "<group>"; };
+		A0A84199213B3EE600764560 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A0BD12C52023B357000EAF65 /* CollectionsIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsIdentifiers.swift; sourceTree = "<group>"; };
 		A0BD12C72023B543000EAF65 /* UIViewController+Titles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Titles.swift"; sourceTree = "<group>"; };
 		A0BD12CA2023B5EA000EAF65 /* UIView+Anchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchors.swift"; sourceTree = "<group>"; };
@@ -224,10 +224,8 @@
 		A0229069213676A600542759 /* Local */ = {
 			isa = PBXGroup;
 			children = (
-				A022906E213676A600542759 /* LocalKeys.swift */,
 				A022906A213676A600542759 /* Mocks */,
 				A022906C213676A600542759 /* Managers */,
-				A0229070213676A600542759 /* Protocols */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -243,17 +241,10 @@
 		A022906C213676A600542759 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				A022906D213676A600542759 /* UserManager.swift */,
+				A022906D213676A600542759 /* Managers.swift */,
+				A0A84197213B28D200764560 /* LocalDataSourceManager.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		A0229070213676A600542759 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				A0229071213676A600542759 /* UserManagerProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		A0229072213676A600542759 /* Helpers */ = {
@@ -574,6 +565,7 @@
 			children = (
 				A041DE1220229F370026FCB9 /* Constants.swift */,
 				A0EAC7431FD74C29000268A3 /* User.swift */,
+				A0A84199213B3EE600764560 /* Session.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -929,9 +921,9 @@
 				A03C126120227F930055B1AF /* UIView+Shape.swift in Sources */,
 				A03C127420227F930055B1AF /* Navigator+Captain.swift in Sources */,
 				A03C125620227F930055B1AF /* UIViewController+Styles.swift in Sources */,
+				A0A84198213B28D200764560 /* LocalDataSourceManager.swift in Sources */,
 				A03C126920227F930055B1AF /* DeviceDetection.swift in Sources */,
 				A03C125720227F930055B1AF /* PlaceHolderImageProvider.swift in Sources */,
-				A022908D213676A600542759 /* UserManagerProtocol.swift in Sources */,
 				A03C126820227F930055B1AF /* DateHelper.swift in Sources */,
 				A041DE0D202294210026FCB9 /* BasePointAnnotation.swift in Sources */,
 				A041DE0C202294210026FCB9 /* BaseMapViewController.swift in Sources */,
@@ -949,13 +941,14 @@
 				A0229089213676A600542759 /* MockUserManager.swift in Sources */,
 				A03C127120227F930055B1AF /* CLGeocoder+Ext.swift in Sources */,
 				A03C125420227F930055B1AF /* UIViewController+Gallery.swift in Sources */,
-				A022908A213676A600542759 /* UserManager.swift in Sources */,
+				A022908A213676A600542759 /* Managers.swift in Sources */,
 				A0229099213676A600542759 /* InvalidSMSCodeHandler.swift in Sources */,
 				A041DE0A202294210026FCB9 /* BaseMapProtocols.swift in Sources */,
 				A03C127020227F930055B1AF /* PresenterMate.swift in Sources */,
 				A0BD12C82023B543000EAF65 /* UIViewController+Titles.swift in Sources */,
 				A0229095213676A600542759 /* RemoteDataSource.swift in Sources */,
 				A03C125C20227F930055B1AF /* String+Ext.swift in Sources */,
+				A0A8419A213B3EE600764560 /* Session.swift in Sources */,
 				A0229098213676A600542759 /* SerializationError.swift in Sources */,
 				A0229090213676A600542759 /* UsersRouter.swift in Sources */,
 				A03C125D20227F930055B1AF /* UIColor+Ext.swift in Sources */,
@@ -981,7 +974,6 @@
 				A041DE09202294210026FCB9 /* DecorableCell.swift in Sources */,
 				A03C125920227F930055B1AF /* Array+Ext.swift in Sources */,
 				A0BD12C62023B357000EAF65 /* CollectionsIdentifiers.swift in Sources */,
-				A022908B213676A600542759 /* LocalKeys.swift in Sources */,
 				A03C126220227F930055B1AF /* UIView+Styles.swift in Sources */,
 				A0EAC7441FD74C29000268A3 /* User.swift in Sources */,
 			);

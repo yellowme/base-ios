@@ -8,16 +8,20 @@
 
 import Foundation
 
-class MockUserManager: UserManagerProtocol {
-    func save(user: User?) {
+class MockUserManager: DefaultsManager<User> {
+    override func keyString() -> String {
+        return "mockUser"
+    }
+    
+    override func save(data: User?) {
         //TODO: Modify if needed
     }
     
-    func retrieve() -> User? {
+    override func retrieve() -> User? {
         return MockHelper.getUserMock()
     }
     
-    func clear() {
+    override func clear() {
         //TODO: Modify if needed
     }
 }

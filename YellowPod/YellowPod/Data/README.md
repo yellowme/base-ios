@@ -20,10 +20,7 @@
 
 ## Local
 
-**IMPORTANT:** `Local` folder uses `LocalKeys` file to define all access keys.
-
 ### Folder structure
 
-* **Protocols** - Abstract definition of local data access
 * **Managers** - Concrete implementations for all local data access (UserDefaults)
 * **Mock** - Fake local responses for testing or debugging
