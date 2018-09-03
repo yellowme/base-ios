@@ -55,6 +55,13 @@ protocol AuthenticatedRouter: AppRouter {
     var authToken: String { get }
 }
 
+extension AuthenticatedRouter {
+    var authToken: String {
+        //TODO: Change access to TokenHolder or similar
+        return ""
+    }
+}
+
 extension AppRouter where Self: AuthenticatedRouter {
     func buildRequest() throws -> URLRequest {
         debugPrint("Authenticated build request")
@@ -64,8 +71,7 @@ extension AppRouter where Self: AuthenticatedRouter {
         urlRequest.setValue(
             authToken,
             forHTTPHeaderField: AppHeaders.authKey
-        )
-        
+        )        
         return urlRequest
     }
 }

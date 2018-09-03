@@ -10,11 +10,6 @@ import Foundation
 import Alamofire
 
 enum UsersRouter: AuthenticatedRouter {
-    var authToken: String {
-        //TODO: Change access to TokenHolder or something
-        return ""
-    }
-    
     case current
     case create(Parameters)
     
@@ -35,8 +30,10 @@ enum UsersRouter: AuthenticatedRouter {
             return Endpoints.Users.all.url
         }
     }
-    
-    // MARK: Customize Request    
+}
+
+// MARK: Customize Request
+extension UsersRouter: RequestDecorable {
     func decorate(_ urlRequest: inout URLRequest) throws -> URLRequest {
         switch self {
         case .create(let parameters):

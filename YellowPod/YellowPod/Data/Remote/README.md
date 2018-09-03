@@ -20,7 +20,7 @@ enum Endpoints {
         case update
         case create
         case authenticate
-        
+
         var endpoint: String {
             switch self {
             case .authenticate:
@@ -29,7 +29,7 @@ enum Endpoints {
                 return url
             }
         }
-        
+
         var url: String {
             return  "\(APIConstants.apiBaseURL)/users/"
         }
@@ -40,7 +40,7 @@ enum Endpoints {
         case delete(id: String)
         case deleteAll
         case list
-        
+
         var endpoint: String {
             switch self {
             case .find(let id), .delete(let id):
@@ -49,12 +49,12 @@ enum Endpoints {
                 return url
             }
         }
-        
+
         var url: String {
             return  "\(APIConstants.apiBaseURL)/notifications/"
         }
     }
-    
+
     // HERE: Add your custom endpoints
 }
 ```
@@ -80,7 +80,7 @@ enum UsersRouter: AuthenticatedRouter {
     case create(Parameters)
     case update(Parameters)
     case login(Parameters)
-    
+
     var method: HTTPMethod {
         switch self {
         case .current:
@@ -93,7 +93,7 @@ enum UsersRouter: AuthenticatedRouter {
             return .post
         }
     }
-    
+
     var path: String {
         switch self {
         case .current:
@@ -106,12 +106,14 @@ enum UsersRouter: AuthenticatedRouter {
             return Endpoints.Users.authenticate.url
         }
     }
-    
-    // MARK: Add body or query params
+}
+
+// MARK: Customize Request
+extension UsersRouter: RequestDecorable {
     func decorate(_ urlRequest: inout URLRequest) throws -> URLRequest {
         switch self {
         case .create(let parameters):
-            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)        
+            urlRequest = try JSONEncoding.default.encode(urlRequest, with: parameters)
         default:
             break
         }
@@ -119,6 +121,11 @@ enum UsersRouter: AuthenticatedRouter {
     }
 }
 ```
+
+**IMPORTANT:**
+
+* Adopt the `RequestDecorable` protocol on your router if you need to intercept the URLRequest building process and add custom decoration, like parameters.
+* Update `authToken` value on the  `AuthenticatedRouter default extension` inside the file `Data/Remote/Routers/Router.swift` with the token storage strategy defined on your project.
 
 ## 5. Create the `Service` class
 
@@ -136,7 +143,7 @@ class UsersAPI: UsersAPIProtocol {
             debugPrint(user ?? "No user")
             completion(user, nil)
         }
-        
+
         serverRequest(request)
     }
 }
