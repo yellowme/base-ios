@@ -24,12 +24,12 @@ Example:
 import Foundation
 
 struct Pokemon: Codable {
-    let id: String?
-    let types: [String]?
-    let region: String?
-    let generation: String?
-    let imageURL: String?
-    let name: String?
+    var id: String?
+    var types: [String]?
+    var region: String?
+    var generation: String?
+    var imageURL: String?
+    var name: String?
 
     private enum CodingKeys: CodingKey {
         case id
